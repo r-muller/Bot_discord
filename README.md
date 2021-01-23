@@ -2,11 +2,16 @@
 Un bot discord pour faire des sondages et des lances de De
 
 # Instalation
-## cloner le projet
+## Cloner le projet
 `https://github.com/r-muller/Bot_discord.git`
 
-## installer les packages
+## Installer les packages
 `npm i`
 
-## lancer le server
+## Lancer le server
 `node bot.js`
+
+
+
+# Credit
+Bot cree grace a [discord.js](https://github.com/discordjs/discord.js)
