@@ -3,7 +3,7 @@ Un bot discord pour faire des sondages et des lances de De
 
 # Instalation
 ## Cloner le projet
-`https://github.com/r-muller/Bot_discord.git`
+`git clone https://github.com/r-muller/Bot_discord.git`
 
 ## Installer les packages
 `npm i`
