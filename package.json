@@ -1,0 +1,11 @@
+{
+  "name": "bot",
+  "version": "0.0.1",
+  "description": "Mon premier discord bot, tout ca pour Quentin",
+  "main": "bot.js",
+  "author": "Acri",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "winston": "^3.3.3"
+  }
+}
