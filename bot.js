@@ -51,33 +51,29 @@ client.on('message', function (message) {
 // Ex:( ::roll 1 20)
 function roll(message)
 {
+    message.content = (message.content === '::roll' ? '::roll 1 20' : message.content)
     var msg;
     var somme = 0;
     var dice = 0;
-    var nb_lance;
-
-    var args = message.content.substr(message.content.indexOf(' ')).split(' ');
-    args.shift();
-    nb_lance = args[0];
-
+    var args = message.content.match(/\d+/g)
+    
     if (args.length > 2 || args.length <= 0) {
         message.channel.send("```\nToo few or too many arguments\nTry again with:\n::roll {nbr_dice} {dice}\n```")
         return
     }
-
-    // DEBUT du message
-    msg = "```\n";
-    msg += message.author.username + "\n";
-    while (nb_lance)
-    {// CREATION du message plus LANCE de Des
+/*
+**      CREATION DU MESSAGE
+*/    
+    msg = "```\n" + message.author.username + "\n";
+    for(var i = 0; i < args[0]; i++)
+    {
         dice = Math.floor(Math.random() * (args[1] - 1 + 1)) + 1;
         somme += dice;
         msg += dice + "\n";
-        nb_lance -= 1;
     }
-    if (args[0] > 1) msg += "total:" + somme; // AJOUT de la ligne TOTAL si il y a plusieurs lance
+
+    if (args[0] > 1) msg += "total:" + somme;
     msg += "\n```";
-    // FIN du message
 
     message.channel.send(msg)
 }
@@ -89,10 +85,10 @@ function sondage(message)
     var msg = '';
     var nbr_letter = ['0\uFE0F\u20E3', '1\uFE0F\u20E3', '2\uFE0F\u20E3', '3\uFE0F\u20E3', '4\uFE0F\u20E3', '5\uFE0F\u20E3', '6\uFE0F\u20E3', '7\uFE0F\u20E3', '8\uFE0F\u20E3', '9\uFE0F\u20E3'];
     var args = message.content.substr(message.content.indexOf(' ')).split(',');
-    var title = args.shift();
+    var title = args.shift().trim();
 
     if (args[args.length - 1] === "") args.pop();
-    if (args.length > 10 || args.length <= 0) {
+    if (args.length > 10 || args.length  < 1) {
         message.channel.send("```\nToo few or too many arguments\nTry again with:\n::sondage {title}, {choix}, ..., {choix 10}\n```")
         return
     }
