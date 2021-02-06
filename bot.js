@@ -6,11 +6,11 @@
 */
 
 const { Client, MessageEmbed } = require('discord.js');
-const auth = require('./auth.json');
 
 // Initialize Discord Bot
 const client = new Client();
-client.login(auth.token);
+client.login("Mon Token Hyper Secret  MyApplication > Bot > Token > Click to Reveal Token");
+
 client.on('ready', (evt) => {
     console.log('Connected');
     console.log('Logged in as: ', client.user.tag);
